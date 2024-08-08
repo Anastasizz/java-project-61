@@ -4,10 +4,12 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Even {
-    final public static int GAME_ROUNDS = 3;
-    final public static int WIN_SCORE = 3;
+    //final private static int GAME_ROUNDS = 3;
+    //final private static int WIN_SCORE = 3;
 
     public static void start() {
+        final int GAME_ROUNDS = 3;
+        final int WIN_SCORE = 3;
         Random random = new Random();
         Scanner sc = new Scanner(System.in);
         int round = 0;
@@ -25,14 +27,15 @@ public class Even {
             System.out.println("Question: " + randomNumber);
             System.out.print("Your answer: ");
             userAnswer = sc.next();
-            correctAnswer = ( randomNumber % 2 == 0 ) ? "yes" : "no";
+            correctAnswer = (randomNumber % 2 == 0) ? "yes" : "no";
 
             if (correctAnswer.equals(userAnswer)) {
                 System.out.println("Correct!");
                 round++;
                 gameScore++;
             } else {
-                System.out.println("'" + userAnswer + "'" + " is wrong answer ;(. Correct answer was " + "'" + correctAnswer + "'" + ".");
+                System.out.println("'" + userAnswer + "'" + " is wrong answer ;(. Correct answer was "
+                                   + "'" + correctAnswer + "'" + ".");
                 System.out.println("Let's try again, " + userName + "!");
                 break;
             }
