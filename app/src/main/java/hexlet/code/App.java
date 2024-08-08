@@ -1,5 +1,6 @@
 package hexlet.code;
 
+import hexlet.code.games.Game;
 import hexlet.code.games.Greet;
 import hexlet.code.games.Even;
 import hexlet.code.games.Calc;
@@ -20,15 +21,16 @@ public class App {
         System.out.print("Your choice: ");
         int userChoice = sc.nextInt();
 
+        Game game = null;
         switch (userChoice) {
             case 1:
                 Greet.start();
                 break;
             case 2:
-                Even.start();
+                game = new Even();
                 break;
             case 3:
-                Calc.start();
+                game = new Calc();
                 break;
             case 0:
                 System.out.println("Goodbye, <username>!");
@@ -36,5 +38,10 @@ public class App {
             default:
                 System.out.println("Incorrect input, try again!");
         }
+        if (game != null) {
+            Engine engine = new Engine();
+            engine.start(game);
+        }
+
     }
 }

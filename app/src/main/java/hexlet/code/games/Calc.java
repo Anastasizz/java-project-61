@@ -1,20 +1,19 @@
 package hexlet.code.games;
 
-import hexlet.code.Engine;
-
 import java.util.Random;
 
-public class Calc {
-    public static void start() {
-        final int gameRounds = Engine.getGameRounds();
-        String introText = "What is the result of the expression?";
-        String[][] gameData = new String[gameRounds][2];
+import static hexlet.code.Engine.GAME_ROUNDS;
 
-        prepareGameData(gameData);
-        Engine.start(gameData, introText);
+public class Calc implements Game {
+    private final String[][] gameData = new String[GAME_ROUNDS][2];
+    private String introText = "";
+
+    public Calc() {
+        this.introText = "What is the result of the expression?";
+        prepareGameData();
     }
 
-    private static void prepareGameData(String[][] gameData) {
+    public void prepareGameData() {
         char[] operators = {'+', '*', '-'};
         char rndOp = '+';
         int rndNum1 = 0;
@@ -31,7 +30,7 @@ public class Calc {
         }
     }
 
-    private static String getCorrectAnswer(int num1, int num2, char op) {
+    private String getCorrectAnswer(int num1, int num2, char op) {
         String correctAnswer = "";
         switch (op) {
             case '+':
@@ -45,5 +44,13 @@ public class Calc {
             default:
         }
         return correctAnswer;
+    }
+
+    public String[][] getGameData() {
+        return gameData;
+    }
+
+    public String getIntroText() {
+        return introText;
     }
 }
