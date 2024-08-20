@@ -39,7 +39,7 @@ public class App {
                 break;
             case 3:
                 Calc.prepareGameData(gameData);
-                title = Even.getTitle();
+                title = Calc.getTitle();
                 break;
             case 4:
                 GCD.prepareGameData(gameData);
