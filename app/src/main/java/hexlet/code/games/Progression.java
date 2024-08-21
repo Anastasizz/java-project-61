@@ -7,6 +7,7 @@ public class Progression {
 
     public static void prepareGameData(String[][] gameData) {
         final int prgLength = 10;
+        final int BOUND = 10;
         Random random = new Random();
         StringBuilder progression = new StringBuilder();
         String correctAnswer = "";
@@ -16,9 +17,9 @@ public class Progression {
         int start;
 
         for (int i = 0; i < gameData.length; i++) {
-            step = random.nextInt(1, 10);
-            x = random.nextInt(10);
-            start = random.nextInt(20);
+            step = random.nextInt(1, BOUND);
+            x = random.nextInt(BOUND);
+            start = random.nextInt(BOUND);
             progression.append(start);
             for (int j = 0; j < prgLength; j++) {
                 start += step;

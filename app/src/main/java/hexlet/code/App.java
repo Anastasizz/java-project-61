@@ -3,7 +3,7 @@ package hexlet.code;
 import hexlet.code.games.Greet;
 import hexlet.code.games.Even;
 import hexlet.code.games.Calc;
-import hexlet.code.games.GCD;
+import hexlet.code.games.Gcd;
 import hexlet.code.games.Progression;
 import hexlet.code.games.Prime;
 
@@ -15,6 +15,13 @@ public class App {
     public static void main(String[] args) {
 //        System.out.println("Welcome to the Brain Games!");
 //        Cli.hello();
+        final int GRT = 1;
+        final int EVN = 2;
+        final int CLC = 3;
+        final int GCD = 4;
+        final int PRG = 5;
+        final int PRM = 6;
+        final int EXT = 0;
         String[] games = {"Exit", "Greet", "Even", "Calc", "GCD", "Progression", "Prime"};
         Scanner sc = new Scanner(System.in);
 
@@ -30,30 +37,30 @@ public class App {
         String[][] gameData = new String[GAME_ROUNDS][2];
         String title = "";
         switch (userChoice) {
-            case 1:
+            case GRT:
                 Greet.start();
                 break;
-            case 2:
+            case EVN:
                 Even.prepareGameData(gameData);
                 title = Even.getTitle();
                 break;
-            case 3:
+            case CLC:
                 Calc.prepareGameData(gameData);
                 title = Calc.getTitle();
                 break;
-            case 4:
-                GCD.prepareGameData(gameData);
-                title = GCD.getTitle();
+            case GCD:
+                Gcd.prepareGameData(gameData);
+                title = Gcd.getTitle();
                 break;
-            case 5:
+            case PRG:
                 Progression.prepareGameData(gameData);
                 title = Progression.getTitle();
                 break;
-            case 6:
+            case PRM:
                 Prime.prepareGameData(gameData);
                 title = Prime.getTitle();
                 break;
-            case 0:
+            case EXT:
                 System.out.println("Goodbye, <username>!");
                 break;
             default:

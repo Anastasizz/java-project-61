@@ -8,15 +8,16 @@ public class Calc {
 
     public static void prepareGameData(String[][] gameData) {
         char[] operators = {'+', '*', '-'};
+        final int BOUND = 100;
         char rndOp = '+';
         int rndNum1 = 0;
         int rndNum2 = 0;
         Random random = new Random();
 
         for (int i = 0; i < gameData.length; i++) {
-            rndNum1 = random.nextInt(100);
-            rndNum2 = random.nextInt(100);
-            rndOp = operators[random.nextInt(3)];
+            rndNum1 = random.nextInt(BOUND);
+            rndNum2 = random.nextInt(BOUND);
+            rndOp = operators[random.nextInt(operators.length)];
 
             gameData[i][0] = rndNum1 + " " + rndOp + " " + rndNum2; //question
             gameData[i][1] = getCorrectAnswer(rndNum1, rndNum2, rndOp); //correct answer
