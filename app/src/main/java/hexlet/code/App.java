@@ -3,7 +3,7 @@ package hexlet.code;
 import hexlet.code.games.Greet;
 import hexlet.code.games.Even;
 import hexlet.code.games.Calc;
-import hexlet.code.games.Gcd;
+import hexlet.code.games.GCD;
 import hexlet.code.games.Progression;
 import hexlet.code.games.Prime;
 
@@ -15,13 +15,13 @@ public class App {
     public static void main(String[] args) {
 //        System.out.println("Welcome to the Brain Games!");
 //        Cli.hello();
-        final int GRT = 1;
-        final int EVN = 2;
-        final int CLC = 3;
-        final int GCD = 4;
-        final int PRG = 5;
-        final int PRM = 6;
-        final int EXT = 0;
+        final int grtCase = 1;
+        final int evnCase = 2;
+        final int clcCase = 3;
+        final int gcdCase = 4;
+        final int prgCase = 5;
+        final int prmCase = 6;
+        final int extCase = 0;
         String[] games = {"Exit", "Greet", "Even", "Calc", "GCD", "Progression", "Prime"};
         Scanner sc = new Scanner(System.in);
 
@@ -37,37 +37,37 @@ public class App {
         String[][] gameData = new String[GAME_ROUNDS][2];
         String title = "";
         switch (userChoice) {
-            case GRT:
+            case grtCase:
                 Greet.start();
                 break;
-            case EVN:
+            case evnCase:
                 Even.prepareGameData(gameData);
                 title = Even.getTitle();
                 break;
-            case CLC:
+            case clcCase:
                 Calc.prepareGameData(gameData);
                 title = Calc.getTitle();
                 break;
-            case GCD:
-                Gcd.prepareGameData(gameData);
-                title = Gcd.getTitle();
+            case gcdCase:
+                GCD.prepareGameData(gameData);
+                title = GCD.getTitle();
                 break;
-            case PRG:
+            case prgCase:
                 Progression.prepareGameData(gameData);
                 title = Progression.getTitle();
                 break;
-            case PRM:
+            case prmCase:
                 Prime.prepareGameData(gameData);
                 title = Prime.getTitle();
                 break;
-            case EXT:
+            case extCase:
                 System.out.println("Goodbye, <username>!");
                 break;
             default:
                 System.out.println("Incorrect input, try again!");
         }
 
-        if (userChoice > 1 && userChoice < 7) {
+        if (userChoice > grtCase && userChoice <= prmCase) {
             Engine.start(gameData, title);
         }
 

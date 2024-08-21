@@ -7,11 +7,11 @@ public class Prime {
 
     public static void prepareGameData(String[][] gameData) {
         Random random = new Random();
-        final int BOUND = 100;
+        final int bound = 100;
         int randomNumber = 0;
 
         for (int i = 0; i < gameData.length; i++) {
-            randomNumber = random.nextInt(BOUND);
+            randomNumber = random.nextInt(bound);
             gameData[i][0] = String.valueOf(randomNumber); //question
             gameData[i][1] = (isPrime(randomNumber)) ? "yes" : "no"; //correct answer
         }
