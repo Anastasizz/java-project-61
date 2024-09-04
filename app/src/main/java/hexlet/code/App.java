@@ -9,7 +9,7 @@ import hexlet.code.games.Prime;
 
 import java.util.Scanner;
 
-import static hexlet.code.Engine.GAME_ROUNDS;
+
 
 public class App {
     public static void main(String[] args) {
@@ -34,31 +34,30 @@ public class App {
         System.out.print("Your choice: ");
         int userChoice = sc.nextInt();
 
-        String[][] gameData = new String[GAME_ROUNDS][2];
-        String title = "";
+
         switch (userChoice) {
             case grtCase:
                 Greet.start();
                 break;
             case evnCase:
-                Even.prepareGameData(gameData);
-                title = Even.getTitle();
+                Even.prepareGameData();
+                Even.start();
                 break;
             case clcCase:
-                Calc.prepareGameData(gameData);
-                title = Calc.getTitle();
+                Calc.prepareGameData();
+                Calc.start();
                 break;
             case gcdCase:
-                GCD.prepareGameData(gameData);
-                title = GCD.getTitle();
+                GCD.prepareGameData();
+                GCD.start();
                 break;
             case prgCase:
-                Progression.prepareGameData(gameData);
-                title = Progression.getTitle();
+                Progression.prepareGameData();
+                Progression.start();
                 break;
             case prmCase:
-                Prime.prepareGameData(gameData);
-                title = Prime.getTitle();
+                Prime.prepareGameData();
+                Prime.start();
                 break;
             case extCase:
                 System.out.println("Goodbye, <username>!");
@@ -67,9 +66,9 @@ public class App {
                 System.out.println("Incorrect input, try again!");
         }
 
-        if (userChoice > grtCase && userChoice <= prmCase) {
-            Engine.start(gameData, title);
-        }
+//        if (userChoice > grtCase && userChoice <= prmCase) {
+//            Engine.start(gameData, title);
+//        }
 
     }
 }

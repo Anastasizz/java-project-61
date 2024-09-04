@@ -1,12 +1,16 @@
 package hexlet.code.games;
 
+import hexlet.code.Engine;
+import static hexlet.code.Engine.GAME_ROUNDS;
+
 import java.util.Random;
 
 
 public class Calc {
     private static final String TITLE = "What is the result of the expression?";
+    private static String[][] gameData = new String[GAME_ROUNDS][2];
 
-    public static void prepareGameData(String[][] gameData) {
+    public static void prepareGameData() {
         char[] operators = {'+', '*', '-'};
         final int bound = 100;
         char rndOp = '+';
@@ -20,28 +24,29 @@ public class Calc {
             rndOp = operators[random.nextInt(operators.length)];
 
             gameData[i][0] = rndNum1 + " " + rndOp + " " + rndNum2; //question
-            gameData[i][1] = getCorrectAnswer(rndNum1, rndNum2, rndOp); //correct answer
+            gameData[i][1] = calcExpression(rndNum1, rndNum2, rndOp).toString(); //correct answer
         }
     }
 
-    public static String getTitle() {
-        return TITLE;
-    }
-
-    private static String getCorrectAnswer(int num1, int num2, char op) {
-        String correctAnswer = "";
+    private static Integer calcExpression(int num1, int num2, char op) {
+        Integer correctAnswer = null;
         switch (op) {
             case '+':
-                correctAnswer = String.valueOf(num1 + num2);
+                correctAnswer = num1 + num2;
                 break;
             case '-':
-                correctAnswer = String.valueOf(num1 - num2);
+                correctAnswer = num1 - num2;
                 break;
             case '*':
-                correctAnswer = String.valueOf(num1 * num2);
+                correctAnswer = num1 * num2;
             default:
+                correctAnswer = null;
         }
         return correctAnswer;
+    }
+
+    public static void start() {
+        Engine.start(gameData, TITLE);
     }
 
 }
