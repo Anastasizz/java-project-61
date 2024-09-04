@@ -12,9 +12,10 @@ public class Progression {
     private static String[][] gameData = new String[GAME_ROUNDS][2];
 
     public static void prepareGameData() {
+        final int prgLength = 10;
         final int bound = 10;
         Random random = new Random();
-        int[] progression = new int[10];
+        int[] progression = new int[prgLength];
 
         int start;
         int step;
