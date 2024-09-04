@@ -39,6 +39,7 @@ public class Calc {
                 break;
             case '*':
                 correctAnswer = num1 * num2;
+                break;
             default:
                 correctAnswer = null;
         }
