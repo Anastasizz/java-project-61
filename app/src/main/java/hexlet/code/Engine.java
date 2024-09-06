@@ -9,10 +9,7 @@ public class Engine {
     public static final int GAME_ROUNDS = 3;
 
     public static void start(String[][] gameData, String title) {
-        int currRound = 0;
-        int gameScore = 0;
-        String userAnswer = "";
-        String correctAnswer = "";
+        int currRound = 0, gameScore = 0;
 
         Greet.start();
         String userName = Greet.getUserName();
@@ -20,8 +17,8 @@ public class Engine {
 
         while (currRound < GAME_ROUNDS) {
             printQuestion(gameData[currRound][0]);
-            userAnswer = getUserAnswer();
-            correctAnswer = gameData[currRound][1];
+            String userAnswer = getUserAnswer();
+            String correctAnswer = gameData[currRound][1];
 
             if (userAnswer.equals(correctAnswer)) {
                 System.out.println("Correct!");

@@ -13,15 +13,8 @@ import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
-//        System.out.println("Welcome to the Brain Games!");
-//        Cli.hello();
-        final int grtCase = 1;
-        final int evnCase = 2;
-        final int clcCase = 3;
-        final int gcdCase = 4;
-        final int prgCase = 5;
-        final int prmCase = 6;
-        final int extCase = 0;
+        final int grtCase = 1, evnCase = 2, clcCase = 3, gcdCase = 4, prgCase = 5, prmCase = 6, extCase = 0;
+
         String[] games = {"Exit", "Greet", "Even", "Calc", "GCD", "Progression", "Prime"};
         Scanner sc = new Scanner(System.in);
 
@@ -65,10 +58,6 @@ public class App {
             default:
                 System.out.println("Incorrect input, try again!");
         }
-
-//        if (userChoice > grtCase && userChoice <= prmCase) {
-//            Engine.start(gameData, title);
-//        }
 
     }
 }

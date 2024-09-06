@@ -8,37 +8,35 @@ import java.util.Random;
 import static hexlet.code.Engine.GAME_ROUNDS;
 
 public class Progression {
-    private static final String TITLE = "What number is missing in the progression?";
-    private static String[][] gameData = new String[GAME_ROUNDS][2];
+    private static final String RULES = "What number is missing in the progression?";
+    private static final String[][] gameData = new String[GAME_ROUNDS][2];
+    private static final int prgLength = 10;
+    private static final int bound = 10;
 
     public static void prepareGameData() {
-        final int prgLength = 10;
-        final int bound = 10;
         Random random = new Random();
-        int[] progression = new int[prgLength];
-
-        int start;
-        int step;
-        int hiddenIndex;
-        int currNumber = 0;
-
 
         for (int i = 0; i < gameData.length; i++) {
-            start = random.nextInt(bound);
-            step = random.nextInt(1, bound);
-            hiddenIndex = random.nextInt(bound);
-
-            progression[0] = start;
-            currNumber = start;
-            for (int j = 1; j < progression.length; j++) {
-                currNumber += step;
-                progression[j] = currNumber;
-            }
+            int start = random.nextInt(bound);
+            int step = random.nextInt(1, bound);
+            int hiddenIndex = random.nextInt(bound);
+            int[] progression = generateProgression(start, step);
 
             gameData[i][0] = createQuestion(progression, hiddenIndex);
             gameData[i][1] = String.valueOf(getHiddenNumber(progression, hiddenIndex));
             Arrays.fill(progression, 0);
         }
+    }
+
+    private static int[] generateProgression(int start, int step) {
+        int[] progression = new int[prgLength];
+        progression[0] = start;
+        int currNumber = start;
+        for (int j = 1; j < progression.length; j++) {
+            currNumber += step;
+            progression[j] = currNumber;
+        }
+        return progression;
     }
 
     private static String createQuestion(int[] progression, int hiddenIndex) {
@@ -60,7 +58,7 @@ public class Progression {
     }
 
     public static void start() {
-        Engine.start(gameData, TITLE);
+        Engine.start(gameData, RULES);
     }
 
 }
