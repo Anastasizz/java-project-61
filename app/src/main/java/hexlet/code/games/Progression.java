@@ -9,27 +9,27 @@ import static hexlet.code.Engine.GAME_ROUNDS;
 
 public class Progression {
     private static final String RULES = "What number is missing in the progression?";
-    private static final String[][] gameData = new String[GAME_ROUNDS][2];
-    private static final int prgLength = 10;
-    private static final int bound = 10;
+    private static final String[][] GAME_DATA = new String[GAME_ROUNDS][2];
+    private static final int PRG_LENGTH = 10;
+    private static final int BOUND = 10;
 
     public static void prepareGameData() {
         Random random = new Random();
 
-        for (int i = 0; i < gameData.length; i++) {
-            int start = random.nextInt(bound);
-            int step = random.nextInt(1, bound);
-            int hiddenIndex = random.nextInt(bound);
+        for (int i = 0; i < GAME_DATA.length; i++) {
+            int start = random.nextInt(BOUND);
+            int step = random.nextInt(1, BOUND);
+            int hiddenIndex = random.nextInt(BOUND);
             int[] progression = generateProgression(start, step);
 
-            gameData[i][0] = createQuestion(progression, hiddenIndex);
-            gameData[i][1] = String.valueOf(getHiddenNumber(progression, hiddenIndex));
+            GAME_DATA[i][0] = createQuestion(progression, hiddenIndex);
+            GAME_DATA[i][1] = String.valueOf(getHiddenNumber(progression, hiddenIndex));
             Arrays.fill(progression, 0);
         }
     }
 
     private static int[] generateProgression(int start, int step) {
-        int[] progression = new int[prgLength];
+        int[] progression = new int[PRG_LENGTH];
         progression[0] = start;
         int currNumber = start;
         for (int j = 1; j < progression.length; j++) {
@@ -58,7 +58,7 @@ public class Progression {
     }
 
     public static void start() {
-        Engine.start(gameData, RULES);
+        Engine.start(GAME_DATA, RULES);
     }
 
 }

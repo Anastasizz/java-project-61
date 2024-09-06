@@ -8,17 +8,17 @@ import static hexlet.code.Engine.GAME_ROUNDS;
 
 public class GCD {
     private static final String RULES = "Find the greatest common divisor of given numbers.";
-    private static final String[][] gameData = new String[GAME_ROUNDS][2];
-    private static final int maxNumber = 100;
+    private static final String[][] GAME_DATA = new String[GAME_ROUNDS][2];
+    private static final int MAX_NUMBER = 100;
 
     public static void prepareGameData() {
         Random random = new Random();
 
-        for (int i = 0; i < gameData.length; i++) {
-            int rndNum1 = random.nextInt(maxNumber);
-            int rndNum2 = random.nextInt(maxNumber);
-            gameData[i][0] = rndNum1 + " " + rndNum2; //question
-            gameData[i][1] = String.valueOf(getGCD(rndNum1, rndNum2)); //correct answer
+        for (int i = 0; i < GAME_DATA.length; i++) {
+            int rndNum1 = random.nextInt(MAX_NUMBER);
+            int rndNum2 = random.nextInt(MAX_NUMBER);
+            GAME_DATA[i][0] = rndNum1 + " " + rndNum2; //question
+            GAME_DATA[i][1] = String.valueOf(getGCD(rndNum1, rndNum2)); //correct answer
         }
     }
 
@@ -33,6 +33,6 @@ public class GCD {
     }
 
     public static void start() {
-        Engine.start(gameData, RULES);
+        Engine.start(GAME_DATA, RULES);
     }
 }

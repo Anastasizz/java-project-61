@@ -8,16 +8,16 @@ import static hexlet.code.Engine.GAME_ROUNDS;
 
 public class Prime {
     private static final String RULES = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
-    private static final String[][] gameData = new String[GAME_ROUNDS][2];
-    private static final int maxNumber = 100;
+    private static final String[][] GAME_DATA = new String[GAME_ROUNDS][2];
+    private static final int MAX_NUMBER = 100;
 
     public static void prepareGameData() {
         Random random = new Random();
 
-        for (int i = 0; i < gameData.length; i++) {
-            int randomNumber = random.nextInt(maxNumber);
-            gameData[i][0] = String.valueOf(randomNumber); //question
-            gameData[i][1] = isPrime(randomNumber) ? "yes" : "no"; //correct answer
+        for (int i = 0; i < GAME_DATA.length; i++) {
+            int randomNumber = random.nextInt(MAX_NUMBER);
+            GAME_DATA[i][0] = String.valueOf(randomNumber); //question
+            GAME_DATA[i][1] = isPrime(randomNumber) ? "yes" : "no"; //correct answer
         }
     }
 
@@ -34,7 +34,7 @@ public class Prime {
     }
 
     public static void start() {
-        Engine.start(gameData, RULES);
+        Engine.start(GAME_DATA, RULES);
     }
 
 }

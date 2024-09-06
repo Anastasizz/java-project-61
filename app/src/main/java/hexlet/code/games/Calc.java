@@ -8,20 +8,20 @@ import java.util.Random;
 
 public class Calc {
     private static final String RULES = "What is the result of the expression?";
-    private static final String[][] gameData = new String[GAME_ROUNDS][2];
-    private static final char[] operators = {'+', '*', '-'};
-    private static final int maxNumber = 100;
+    private static final String[][] GAME_DATA = new String[GAME_ROUNDS][2];
+    private static final char[] OPERATORS = {'+', '*', '-'};
+    private static final int MAX_NUMBER = 100;
 
     public static void prepareGameData() {
         Random random = new Random();
 
-        for (int i = 0; i < gameData.length; i++) {
-            int rndNum1 = random.nextInt(maxNumber);
-            int rndNum2 = random.nextInt(maxNumber);
-            char rndOp = operators[random.nextInt(operators.length)];
+        for (int i = 0; i < GAME_DATA.length; i++) {
+            int rndNum1 = random.nextInt(MAX_NUMBER);
+            int rndNum2 = random.nextInt(MAX_NUMBER);
+            char rndOp = OPERATORS[random.nextInt(OPERATORS.length)];
 
-            gameData[i][0] = rndNum1 + " " + rndOp + " " + rndNum2; //question
-            gameData[i][1] = calcExpression(rndNum1, rndNum2, rndOp).toString(); //correct answer
+            GAME_DATA[i][0] = rndNum1 + " " + rndOp + " " + rndNum2; //question
+            GAME_DATA[i][1] = calcExpression(rndNum1, rndNum2, rndOp).toString(); //correct answer
         }
     }
 
@@ -44,7 +44,7 @@ public class Calc {
     }
 
     public static void start() {
-        Engine.start(gameData, RULES);
+        Engine.start(GAME_DATA, RULES);
     }
 
 }
