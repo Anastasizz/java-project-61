@@ -15,8 +15,8 @@ public class GCD {
         Random random = new Random();
 
         for (int i = 0; i < GAME_DATA.length; i++) {
-            int rndNum1 = random.nextInt(MAX_NUMBER);
-            int rndNum2 = random.nextInt(MAX_NUMBER);
+            int rndNum1 = random.nextInt(1, MAX_NUMBER);
+            int rndNum2 = random.nextInt(1, MAX_NUMBER);
             GAME_DATA[i][0] = rndNum1 + " " + rndNum2; //question
             GAME_DATA[i][1] = String.valueOf(getGCD(rndNum1, rndNum2)); //correct answer
         }
