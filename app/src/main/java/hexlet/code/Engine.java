@@ -9,7 +9,8 @@ public class Engine {
     public static final int GAME_ROUNDS = 3;
 
     public static void start(String[][] gameData, String title) {
-        int currRound = 0, gameScore = 0;
+        int currRound = 0;
+        int gameScore = 0;
 
         Greet.start();
         String userName = Greet.getUserName();
