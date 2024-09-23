@@ -11,7 +11,12 @@ public class Prime {
     private static final String[][] GAME_DATA = new String[GAME_ROUNDS][2];
     private static final int MAX_NUMBER = 100;
 
-    public static void prepareGameData() {
+    public static void start() {
+        prepareGameData();
+        Engine.start(GAME_DATA, RULES);
+    }
+
+    private static void prepareGameData() {
         Random random = new Random();
 
         for (int i = 0; i < GAME_DATA.length; i++) {
@@ -31,10 +36,6 @@ public class Prime {
             }
         }
         return true;
-    }
-
-    public static void start() {
-        Engine.start(GAME_DATA, RULES);
     }
 
 }

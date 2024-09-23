@@ -1,7 +1,5 @@
 package hexlet.code;
 
-import hexlet.code.games.Greet;
-
 import java.util.Scanner;
 
 public class Engine {
@@ -12,8 +10,12 @@ public class Engine {
         int currRound = 0;
         int gameScore = 0;
 
-        Greet.start();
-        String userName = Greet.getUserName();
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Welcome to the Brain Games!");
+
+        System.out.print("May I have your name? ");
+        String userName = sc.next();
+        System.out.println("Hello, " + userName + "!");
         System.out.println(title);
 
         while (currRound < GAME_ROUNDS) {

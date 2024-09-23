@@ -1,6 +1,5 @@
 package hexlet.code;
 
-import hexlet.code.games.Greet;
 import hexlet.code.games.Even;
 import hexlet.code.games.Calc;
 import hexlet.code.games.GCD;
@@ -39,23 +38,18 @@ public class App {
                 Greet.start();
                 break;
             case evnCase:
-                Even.prepareGameData();
                 Even.start();
                 break;
             case clcCase:
-                Calc.prepareGameData();
                 Calc.start();
                 break;
             case gcdCase:
-                GCD.prepareGameData();
                 GCD.start();
                 break;
             case prgCase:
-                Progression.prepareGameData();
                 Progression.start();
                 break;
             case prmCase:
-                Prime.prepareGameData();
                 Prime.start();
                 break;
             case extCase:

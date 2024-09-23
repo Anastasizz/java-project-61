@@ -12,7 +12,12 @@ public class Calc {
     private static final char[] OPERATORS = {'+', '*', '-'};
     private static final int MAX_NUMBER = 100;
 
-    public static void prepareGameData() {
+    public static void start() {
+        prepareGameData();
+        Engine.start(GAME_DATA, RULES);
+    }
+
+    private static void prepareGameData() {
         Random random = new Random();
 
         for (int i = 0; i < GAME_DATA.length; i++) {
@@ -41,10 +46,6 @@ public class Calc {
                 correctAnswer = null;
         }
         return correctAnswer;
-    }
-
-    public static void start() {
-        Engine.start(GAME_DATA, RULES);
     }
 
 }
