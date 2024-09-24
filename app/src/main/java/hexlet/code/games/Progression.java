@@ -11,6 +11,8 @@ public class Progression {
     private static final String RULES = "What number is missing in the progression?";
     private static final String[][] GAME_DATA = new String[GAME_ROUNDS][2];
     private static final int BOUND = 10;
+    private static final int PRG_LENGTH = 10;
+
 
     public static void start() {
         prepareGameData();
@@ -23,9 +25,8 @@ public class Progression {
         for (int i = 0; i < GAME_DATA.length; i++) {
             int start = random.nextInt(BOUND);
             int step = random.nextInt(1, BOUND);
-            int progressionLength = 10;
-            String[] progression = generateProgression(start, step, progressionLength);
-            int hiddenIndex = random.nextInt(progressionLength);
+            String[] progression = generateProgression(start, step, PRG_LENGTH);
+            int hiddenIndex = random.nextInt(PRG_LENGTH);
 
             GAME_DATA[i][0] = createQuestion(progression, hiddenIndex);
             GAME_DATA[i][1] = getHiddenNumber(progression, hiddenIndex);
